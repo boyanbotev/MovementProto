@@ -1,4 +1,3 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
 enum PlayerState
 {
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour
         MovementManager.OnMoveToWayPoint -= MoveTo;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (state == PlayerState.Moving)
         {

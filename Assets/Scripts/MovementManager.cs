@@ -9,17 +9,12 @@ public class MovementManager : MonoBehaviour
     [SerializeField] Transform[] wayPoints;
     [SerializeField] int currentWayPointIndex = 0;
     [SerializeField] CinemachineCamera[] virtualCameras;
+    [SerializeField] float beforeCameraDelay = 1f;
 
     private void Start()
     {
         Application.targetFrameRate = 60;
         UpdateActiveCamera();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) MoveToPreviousWayPoint();
-        if (Input.GetKeyDown(KeyCode.RightArrow)) MoveToNextWayPoint();
     }
 
     public void MoveToPreviousWayPoint()
@@ -43,7 +38,6 @@ public class MovementManager : MonoBehaviour
     private void Move()
     {
         OnMoveToWayPoint?.Invoke(wayPoints[currentWayPointIndex].position);
-
         StartCoroutine(CameraMoveRoutine());
     }
 
@@ -62,7 +56,7 @@ public class MovementManager : MonoBehaviour
 
     IEnumerator CameraMoveRoutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(beforeCameraDelay);
         UpdateActiveCamera();
     }
 }
