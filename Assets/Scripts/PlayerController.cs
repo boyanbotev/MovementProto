@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 enum PlayerState
 {
@@ -7,6 +8,7 @@ enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action OnFinishMove;
     [SerializeField] float minDistance = 0.1f;
     [SerializeField] float speed = 5f;
     private PlayerState state = PlayerState.Idle;
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
             {
                 state = PlayerState.Idle;
                 transform.position = targetPos;
+                OnFinishMove?.Invoke();
             }
         }
     }
