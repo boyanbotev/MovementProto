@@ -340,6 +340,7 @@ MonoBehaviour:
   - {fileID: 1115380312}
   - {fileID: 551324401}
   - {fileID: 759126719}
+  playerController: {fileID: 1804646683}
   beforeCameraDelay: 1
 --- !u!1 &385067903
 GameObject:
@@ -899,8 +900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec0285096edc6445bccd240c5e31457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftButton: {fileID: 1788434270}
-  rightButton: {fileID: 139037496}
+  leftButton: {fileID: 1788434274}
+  rightButton: {fileID: 139037498}
 --- !u!1 &923058683
 GameObject:
   m_ObjectHideFlags: 0

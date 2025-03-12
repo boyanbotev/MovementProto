@@ -20,15 +20,6 @@ public class PlayerController : MonoBehaviour
         state = PlayerState.Moving;
     }
 
-    private void OnEnable()
-    {
-        MovementManager.OnMoveToWayPoint += MoveTo;
-    }
-    private void OnDisable()
-    {
-        MovementManager.OnMoveToWayPoint -= MoveTo;
-    }
-
     void Update()
     {
         if (state == PlayerState.Moving)

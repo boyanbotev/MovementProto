@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject leftButton;
-    [SerializeField] GameObject rightButton;
+    [SerializeField] Button leftButton;
+    [SerializeField] Button rightButton;
 
     private void OnEnable()
     {
@@ -20,13 +20,13 @@ public class UIManager : MonoBehaviour
 
     private void UpdateButtons(int index, int totalWayPoints)
     {
-        leftButton.GetComponent<Button>().interactable = index > 0;
-        rightButton.GetComponent<Button>().interactable = index < totalWayPoints - 1;
+        leftButton.interactable = index > 0;
+        rightButton.interactable = index < totalWayPoints - 1;
     }
 
     void DisableButtons(Vector2 vec)
     {
-        leftButton.GetComponent<Button>().interactable = false;
-        rightButton.GetComponent<Button>().interactable = false;
+        leftButton.interactable = false;
+        rightButton.interactable = false;
     }
 }

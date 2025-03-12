@@ -15,6 +15,7 @@ public class MovementManager : MonoBehaviour
     [SerializeField] Transform[] wayPoints;
     [SerializeField] int currentWayPointIndex = 0;
     [SerializeField] CinemachineCamera[] virtualCameras;
+    [SerializeField] PlayerController playerController;
     [SerializeField] float beforeCameraDelay = 1f;
     private MovementState state = MovementState.Idle;
 
@@ -59,6 +60,7 @@ public class MovementManager : MonoBehaviour
 
     private void Move()
     {
+        playerController.MoveTo(wayPoints[currentWayPointIndex].position);
         OnMoveToWayPoint?.Invoke(wayPoints[currentWayPointIndex].position);
         StartCoroutine(CameraMoveRoutine());
         state = MovementState.Moving;
